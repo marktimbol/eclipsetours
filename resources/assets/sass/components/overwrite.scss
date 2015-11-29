@@ -80,3 +80,11 @@ header {
 .img-rounded {
 	border-radius: 3px !important;
 }
+
+.featured_package {
+	.card {
+		background: none !important;
+    	background-color: transparent !important;	
+    	box-shadow: none !important;
+	}
+}
