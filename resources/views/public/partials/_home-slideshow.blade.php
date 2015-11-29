@@ -15,7 +15,7 @@
 	</ul>
 </section> --}}
 
-<header class="slideshow">
+<div class="slideshow">
 	
 	<div id="topLeftCorner" 
 		style="background-image: url({{ asset('images/top-left-corner.png') }});"
@@ -46,6 +46,6 @@
 
 	</div>
 
-</header>
+</div>
 
 <p>&nbsp;</p>

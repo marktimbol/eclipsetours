@@ -1,15 +1,17 @@
 {
   "css/admin.css": "css/admin-0e1c7b056f.css",
   "css/dropzone.css": "css/dropzone-c5d72c6888.css",
-  "css/hero-slider.css": "css/hero-slider-605d44fde8.css",
+  "css/materialize.css": "css/materialize-726991f945.css",
   "css/owl-carousel.css": "css/owl-carousel-6d03625fe3.css",
-  "css/public.css": "css/public-3cb4c27a66.css",
+  "css/public.css": "css/public-d1d4e63f8e.css",
+  "css/triangle.css": "css/triangle-5ce952652b.css",
   "js/admin.js": "js/admin-c2d7fd55e7.js",
   "js/dropzone.js": "js/dropzone-36c0739cd0.js",
-  "js/hero-slider.js": "js/hero-slider-41edc6fd1d.js",
-  "js/home-video.js": "js/home-video-8869c75c89.js",
+  "js/home-video.js": "js/home-video-6a75ff4ec4.js",
+  "js/materialize.js": "js/materialize-88f479e20b.js",
   "js/owl-carousel.js": "js/owl-carousel-f6f1aa88c0.js",
-  "js/public.js": "js/public-439dd77340.js",
+  "js/public.js": "js/public-e358dd15c6.js",
   "js/stripe-billing.js": "js/stripe-billing-ca4d5d751e.js",
+  "js/triangle.js": "js/triangle-0358c5fc0d.js",
   "js/twocheckout-billing.js": "js/twocheckout-billing-c637217547.js"
 }

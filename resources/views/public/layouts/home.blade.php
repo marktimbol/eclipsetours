@@ -27,7 +27,6 @@
 	@include('public.layouts.partials._footer')
 
 	<script src="{{ elixir('js/public.js') }}"></script>
-	<script src="{{ elixir('js/materialize.js') }}"></script>
 
 	@yield('footer_scripts')
 

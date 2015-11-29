@@ -1,90 +1,36 @@
-$(document).ready(function() {
+$v = jQuery.noConflict();
 
-    $("header.slideshow").css({
-        height: $(window).height() + "px"
+$v(document).ready(function() {
+
+    $v(".slideshow").css({
+        height: $v(window).height() + "px"
     }), 
 
-    $("#navigation").css({
-        height: $(window).height() + 70 + "px"
-    })
+    $v("#intro-title").css({
+        height: 1.078 * $v("#intro-title").width() + "px"
+    }), 
 
-    $(window).resize(function() {
-        $("header.slideshow").css({
-            height: $(window).height() + "px"
-        }), 
+    $v("#intro-title").css({
+        left: $v(window).width() / 2 - $v("#intro-title").width() / 2 + "px"
+    }), 
 
-        $("#navigation").css({
-            height: $(window).height() + 70 + "px"
+    $v("#intro-title").css({
+        top: $v(window).height() / 2 - $v("#intro-title").height() / 2 + "px"
+    }), 
+
+    $v(window).resize(function() {
+
+        $v(".slideshow").css({
+            height: $v(window).height() + "px"
         })
 
-    }), 
-
-    $("#intro-title").css({
-        height: 1.078 * $("#intro-title").width() + "px"
-    }), 
-
-    $(".nav-wrap").css({
-        left: $(window).width() / 2 - $(".nav-wrap").width() / 2 + "px"
-    }), 
-
-    $(".nav-wrap").css({
-        top: $(window).height() / 2 - $(".nav-wrap").height() / 2 + "px"
-    }), 
-
-    $("#intro-title").css({
-        left: $(window).width() / 2 - $("#intro-title").width() / 2 + "px"
-    }), 
-
-    $("#intro-title").css({
-        top: $(window).height() / 2 - $("#intro-title").height() / 2 + "px"
-    }), 
-
-    $(window).resize(function() {
-        $(".nav-wrap").css({
-            left: $(window).width() / 2 - $(".nav-wrap").width() / 2 + "px"
+        $v("#intro-title").css({
+            left: $v(window).width() / 2 - $v("#intro-title").width() / 2 + "px"
         }), 
 
-        $(".nav-wrap").css({
-            top: $(window).height() / 2 - $(".nav-wrap").height() / 2 + "px"
-        }), 
-
-        $("#intro-title").css({
-            left: $(window).width() / 2 - $("#intro-title").width() / 2 + "px"
-        }), 
-
-        $("#intro-title").css({
-            top: $(window).height() / 2 - $("#intro-title").height() / 2 + "px"
+        $v("#intro-title").css({
+            top: $v(window).height() / 2 - $v("#intro-title").height() / 2 + "px"
         })
 
-    }), 
-
-    $("#nav-button").click(function() {
-        $("#navigation").hasClass("closed") ? 
-            (
-                $("#navigation").removeClass("closed"), 
-                $("#navigation").addClass("open"), 
-                $(".nav-icon").removeClass("closed"), 
-                $(".nav-icon").addClass("open") 
-            ) : (
-                $("#navigation").removeClass("open"), 
-                $("#navigation").addClass("closed"), 
-                $(".nav-icon").removeClass("open"), 
-                $(".nav-icon").addClass("closed")
-            )
-    }), 
-
-    $("#menu-primary-menu .menu-item").click(function() {
-        $("#navigation").hasClass("closed") ? 
-            (
-                $("#navigation").removeClass("closed"), 
-                $("#navigation").addClass("open"), 
-                $(".nav-icon").removeClass("closed"), 
-                $(".nav-icon").addClass("open")
-            ) : (
-                $("#navigation").removeClass("open"), 
-                $("#navigation").addClass("closed"), 
-                $(".nav-icon").removeClass("open"), 
-                $(".nav-icon").addClass("closed")
-            )
     })
 });

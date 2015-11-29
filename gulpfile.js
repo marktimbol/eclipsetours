@@ -12,10 +12,6 @@ elixir(function(mix) {
 	mix.sass('app.scss', 'resources/assets/css/app.css')
     	.styles([
           'libs/bootstrap.custom.css',
-          'libs/bootstrap-formhelpers.css',
-          'libs/bootstrap-formhelpers-countries.flags.css',
-          'libs/bootstrap-formhelpers-currencies.flags.css',
-          bowers + 'materialize/dist/css/materialize.css',
           bowers + 'sweetalert/dist/sweetalert.css',
           bowers + 'wowjs/css/libs/animate.css',
           bowers + 'fontawesome/css/font-awesome.css',
@@ -24,15 +20,20 @@ elixir(function(mix) {
 
       .scripts([
           bowers + 'jquery/dist/jquery.js',
-          'libs/modernizr.custom.js',
-          'libs/bootstrap-formhelpers-selectbox.js',
-          'libs/bootstrap-formhelpers-currencies.en_US.js',
-          'libs/bootstrap-formhelpers-currencies.js',
-          bowers + 'materialize/dist/js/materialize.js',
           bowers + 'sweetalert/dist/sweetalert.min.js',
           bowers + 'wowjs/dist/wow.js',
+          'libs/modernizr.custom.js',
           'app.js'
       ], 'public/js/public.js')
+
+      .styles([
+          bowers + 'materialize/dist/css/materialize.css',
+        ], 'public/css/materialize.css')
+
+      .scripts([
+          bowers + 'materialize/dist/js/materialize.js',
+          'materialize.js'
+        ], 'public/js/materialize.js')
 
       .scripts([
         'libs/stripe-billing.js'
@@ -42,18 +43,18 @@ elixir(function(mix) {
         'libs/twocheckout-billing.js'
         ], 'public/js/twocheckout-billing.js')
 
-      .styles([
-        'libs/hero-slider.css'
-        ], 'public/css/hero-slider.css')
+      // .styles([
+      //   'libs/hero-slider.css'
+      //   ], 'public/css/hero-slider.css')
 
       .styles([
         bowers + 'owl-carousel/owl-carousel/owl.carousel.css',
         bowers + 'owl-carousel/owl-carousel/owl.theme.css'
         ], 'public/css/owl-carousel.css')
 
-      .scripts([
-        'libs/hero-slider.js'
-        ], 'public/js/hero-slider.js')
+      // .scripts([
+      //   'libs/hero-slider.js'
+      //   ], 'public/js/hero-slider.js')
 
       .scripts([
         'libs/home-video.js'
@@ -62,9 +63,22 @@ elixir(function(mix) {
       .scripts([
         bowers + 'owl-carousel/owl-carousel/owl.carousel.js',
         'libs/owl-carousel.js'
-        ], 'public/js/owl-carousel.js');
+        ], 'public/js/owl-carousel.js')
 
-      // .browserSync({ proxy: 'http://eclipsetourism.dev' });
+      .styles([
+        'libs/triangle/card.css',
+        'libs/triangle/pattern.css'
+        ], 'public/css/triangle.css')
+
+      .scripts([  
+          'libs/triangle/trianglify.min.js',
+          'libs/triangle/TweenMax.min.js',
+          'libs/triangle/ScrollToPlugin.min.js',
+          'libs/triangle/cash.min.js',
+          'libs/triangle/Card-circle.js',
+          'libs/triangle/triangle.js'
+        ], 'public/js/triangle.js');
+  
 
 /*
  |--------------------------------------------------------------------------
@@ -82,10 +96,6 @@ elixir(function(mix) {
       bowers + 'metisMenu/dist/metisMenu.css'
       ], 'public/css/admin.css')
 
-    .styles([
-      bowers + 'dropzone/dist/dropzone.css'
-      ], 'public/css/dropzone.css')
-
     .scripts([
       'libs/modernizr.custom.js',
       bowers + 'jquery/dist/jquery.js',
@@ -97,6 +107,10 @@ elixir(function(mix) {
 
       ], 'public/js/admin.js')
 
+    .styles([
+      bowers + 'dropzone/dist/dropzone.css'
+      ], 'public/css/dropzone.css')
+
     .scripts([
       bowers + 'dropzone/dist/dropzone.js',
       'admin/dropzone.js'
@@ -106,15 +120,20 @@ elixir(function(mix) {
       'css/public.css',
       'js/public.js',
 
+      'css/materialize.css',
+      'js/materialize.js',
+
       'js/stripe-billing.js',
       'js/twocheckout-billing.js',
       
-      //'css/bootstrap.custom.css',
-      
-      'css/hero-slider.css',
-      'js/hero-slider.js',
+      //'css/bootstrap.custom.css', 
+      // 'css/hero-slider.css',
+      // 'js/hero-slider.js',
 
       'js/home-video.js',
+
+      'css/triangle.css',
+      'js/triangle.js',
       
       'css/owl-carousel.css',
       'js/owl-carousel.js',
