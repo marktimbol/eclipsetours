@@ -49,7 +49,7 @@
 			@foreach( range(1, 12) as $index )
 
 				<div class="col s12 m4">
-					<div class="card">
+					<div class="card wow fadeInUp" data-wow-delay="0.{{$index+2}}s">
 						<div class="card__container card__container--closed">
 							<svg class="card__image" 
 								xmlns="http://www.w3.org/2000/svg" 
