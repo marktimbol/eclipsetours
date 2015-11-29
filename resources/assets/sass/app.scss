@@ -23,7 +23,6 @@ a {
 }
 
 header {
-
 	a {
 		font-size: 1em;
 		&:hover {
@@ -32,6 +31,70 @@ header {
 		}
 	}
 
+	nav {
+		background: $blue;
+		background-color: $blue;
+	}
+
+}
+
+/** SLIDESHOW **/
+header.slideshow {
+    position: relative;
+    width: 100%;
+    background-color: black;
+    background-image: none;	
+    overflow: hidden;
+
+    .logo {
+    	z-index: 3;   
+
+	    position: absolute;
+	    left: 20px;
+	    top: 0;
+	    width: 24%;
+	    max-width: 250px;    	 	
+    }    
+
+    #topLeftCorner {
+	    top: 0;
+	    left: 0;
+	    background-position: top left;    	 
+    }
+
+    #bottomRightCorner {
+		bottom: 0;
+		right: 0;
+		background-position: bottom right;
+    }    
+
+    #topLeftCorner, #bottomRightCorner {
+	    position: absolute;
+	    max-width: 600px;
+	    max-height: 350px;
+	    width: 50%;
+	    height: 40%;
+	    background-size: contain;
+	    background-repeat: no-repeat;	    
+    }    
+
+    #top_video {
+		margin: 0 auto;
+		display: block; 
+		width: 100%;   	
+    }
+
+    #intro-title {
+    	text-align: center;
+	    position: absolute;
+	    width: 40%;
+	    max-width: 500px;    
+	    margin-top: 60px;	
+
+	    a {
+	    	margin-top: 20px;
+	    }
+    }
 }
 
 .package {

@@ -56,6 +56,10 @@ elixir(function(mix) {
         ], 'public/js/hero-slider.js')
 
       .scripts([
+        'libs/home-video.js'
+        ], 'public/js/home-video.js')      
+
+      .scripts([
         bowers + 'owl-carousel/owl-carousel/owl.carousel.js',
         'libs/owl-carousel.js'
         ], 'public/js/owl-carousel.js');
@@ -109,6 +113,8 @@ elixir(function(mix) {
       
       'css/hero-slider.css',
       'js/hero-slider.js',
+
+      'js/home-video.js',
       
       'css/owl-carousel.css',
       'js/owl-carousel.js',

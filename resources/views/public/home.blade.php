@@ -3,7 +3,6 @@
 @section('pageTitle', 'Home')
 
 @section('header_styles')
-	<link rel="stylesheet" href="{{ elixir('css/hero-slider.css') }}" />
 	<link rel="stylesheet" href="{{ elixir('css/owl-carousel.css') }}" />
 @endsection
 
@@ -135,6 +134,6 @@
 @endsection
 
 @section('footer_scripts')
-	<script src="{{ elixir('js/hero-slider.js') }}"></script>
+	<script src="{{ elixir('js/home-video.js') }}"></script>
 	<script src="{{ elixir('js/owl-carousel.js') }}"></script>
 @endsection
