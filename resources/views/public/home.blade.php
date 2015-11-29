@@ -46,7 +46,7 @@
 			<!-- trianglify pattern container -->
 			<div class="pattern pattern--hidden"></div>
 			
-			@foreach( range(1,9) as $index )
+			@foreach( range(1, 12) as $index )
 
 				<div class="col s12 m4">
 					<div class="card">
@@ -89,6 +89,13 @@
 				</div>
 
 			@endforeach
+
+			<div class="text-center">
+				<p>&nbsp;</p>
+				<p>
+					<a href="{{ route('packages') }}" class="btn waves-effect waves-light">View all Packages</a>
+				</p>
+			</div>
 
 		</div>
 	
