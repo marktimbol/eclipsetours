@@ -3,11 +3,12 @@
 @section('pageTitle', 'Home')
 
 @section('header_styles')
-	
 	<link rel="stylesheet" href="{{ elixir('css/triangle.css') }}" />
 @endsection
 
 @section('body_class', 'home')
+
+@inject('time', 'Eclipse\Services\Time')
 
 @section('content')
 
@@ -46,10 +47,10 @@
 			<!-- trianglify pattern container -->
 			<div class="pattern pattern--hidden"></div>
 			
-			@foreach( range(1, 12) as $index )
+			@foreach( $packages as $package )
 
 				<div class="col s12 m4">
-					<div class="card wow fadeInUp" data-wow-delay="0.{{$index+1}}s">
+					<div class="card wow fadeInUp" data-wow-delay="0.{{$package->id}}s">
 						<div class="card__container card__container--closed">
 							<svg class="card__image" 
 								xmlns="http://www.w3.org/2000/svg" 
@@ -58,31 +59,166 @@
 								preserveAspectRatio="xMidYMid slice"
 							>
 								<defs>
-									<clipPath id="clipPath{{ $index }}">
+									<clipPath id="clipPath{{ $package->id }}">
 										<!-- r = 992 = hyp = Math.sqrt(960*960+250*250) -->
 										<circle class="clip" cx="960" cy="250" r="992"></circle>
 									</clipPath>
 								</defs>
-								<image clip-path="url(#clipPath{{ $index }})" 
+								<image clip-path="url(#clipPath{{ $package->id }})" 
 										width="1920" 
 										height="500" 
 										xlink:href="{{ asset('images/card-expand-test-image.jpg') }}"
 								></image>
 							</svg>
 							<div class="card__content">
+
 								<i class="card__btn-close fa fa-times"></i>
+							
 								<div class="card__caption">
-									<h2 class="card__title">Sample Package {{ $index }}</h2>
-									<p class="card__subtitle">A modern day love story</p>
+									<h2 class="card__title">{{ $package->name }}</h2>
+									<p class="card__subtitle">{{ $package->subtitle }}</p>
 								</div>
+
 								<div class="card__copy">
-									<div class="meta">
-										<span class="meta__author">Gerry Sutherland</span>
-										<span class="meta__date">06/19/2015</span>
-									</div>
-									<p>Business model canvas bootstrapping deployment startup. In A/B testing pivot niche market alpha conversion startup down monetization partnership business-to-consumer success for investor mass market business-to-business.</p>
-								
+									<div class="col m12 s12">
+										<div class="package">
+											<h1 class="package__title wow fadeInLeft">{{ $package->name }}</h1>
+
+											<div class="row">
+												<div class="col m9 s12 wow fadeInLeft">
+												
+													<div class="owl-carousel">
+														{!! displayAll($package->photos, 'img-rounded') !!}
+													</div>
+
+													<div class="package__description">
+														<h3>{{ $package->subtitle }}</h3>
+														{!! $package->description !!}
+													</div>
+												</div>
+
+												<div class="col m3 s12 wow fadeInRight">
+													<h3 class="package__price">
+														{!! convertedAmountWithCurrency($package->adult_price) !!}
+													</h3>
+
+													<ul class="collection">
+														<li class="collection-item">
+															<strong>Departs:</strong> {{ $package->departs }}
+														</li>
+														<li class="collection-item">
+															<strong>Returns:</strong> {{ $package->returns }}
+														</li>								
+														<li class="collection-item">
+															<strong>Duration:</strong> {{ $package->duration }}
+														</li>
+														<li class="collection-item">
+															<strong>Adult:</strong> {!! convertedAmountWithCurrency($package->adult_price) !!}
+														</li>
+														<li class="collection-item">
+															<strong>Child:</strong> {!! convertedAmountWithCurrency($package->child_price) !!}
+														</li>
+														@if( $package->confirm_availability )
+															<li class="collection-item">
+																Subject for Availability
+															</li>								
+														@endif	
+													</ul>
+
+													<div class="book-a-package-form">
+
+														<h3 class="book-a-package-form__title">Book this package</h3>
+
+														@include('errors.forms')
+														
+														@if( $package->confirm_availability )
+															<form method="POST" action="{{ route('booking.store') }}">
+														@else
+															<form method="POST" action="{{ route('cart.store') }}">
+														@endif 
+														
+															{!! csrf_field() !!}
+
+															<input type="hidden" name="package_id" value="{{ $package->id }}" />
+
+															<div class="row">
+																<div class="col m12 mb-0">
+																	<div class="form-group">
+																		<label for="date">Preferred Date:</label>
+																		<div class="input-group">
+																			<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+																			<input type="text" name="date" id="date" class="form-control datepicker" required />
+																		</div>
+																	</div>
+																</div>
+
+																@if( $package->has_time_options )
+																	<div class="col m12 mb-0">
+																		<div class="form-group">
+																			<label for="time">Preferred Time:</label>
+																			<select name="time" class="form-control" required>
+																				<option value="" disabled selected>Choose your option</option>
+																				@foreach($time->get() as $value) 
+																					<option value="{{ $value }}">{{ $value }}</option>
+																				@endforeach
+																			</select>
+																		</div>
+																	</div>	
+																@endif									
+
+																<div class="col m12 s12">
+																	<div class="row">
+																		<div class="col m6 s6 mb-0">
+																			<div class="form-group">
+																				<label for="adult">Adult</label>
+																				<select name="quantity" id="adult" class="form-control">
+																					@foreach( range(1,20) as $count )
+																						<option value="{{ $count }}">{{ $count }}</option>
+																					@endforeach	
+																				</select>
+
+																				<input type="hidden" name="price" value="{{ $package->adult_price }}" />
+																			</div>
+																		</div>
+
+																		<div class="col m6 s6 mb-0">
+																			<div class="form-group">
+																				<label for="child">Child</label>
+																				<select name="child_quantity" id="child" class="form-control">
+																					@foreach( range(0,20) as $count )
+																						<option value="{{ $count }}">{{ $count }}</option>
+																					@endforeach	
+																				</select>
+																				<input type="hidden" name="child_price" value="{{ $package->child_price }}" />
+																			</div>
+																		</div>
+																	</div>
+																</div>
+
+																<div class="col m12 s12">
+																	<div class="form-group">
+																		<button type="submit" class="btn btn-large waves-effect waves-light full-width">
+																			Book now
+																		</button>
+																	</div>
+																</div>
+															</div>
+														</form>
+
+													</div>
+
+													<div class="share-package">
+
+														<h6>Share this package</h6>
+
+													</div>
+												</div>
+											</div>	
+										</div><!-- .package -->
+									</div>		
 								</div>
+
+						
 							</div>
 						</div>
 					</div>

@@ -3,7 +3,7 @@
 	<nav>
 		<ul>
 			<li><a href="{{ route('home') }}">Home</a></li>
-			<li><a href="{{ route('packages') }}">Package</a></li>
+			<li><a href="{{ route('packages') }}">Packages</a></li>
 			<li><a href="{{ route('deals') }}">Deals</a></li>
 			<li><a href="{{ route('tourist-information') }}">Tourist Info</a></li>
 			<li><a href="{{ route('corporate') }}">Corporate</a></li>
