@@ -1,7 +1,7 @@
 @inject('categories', 'Eclipse\Repositories\Category\CategoryRepositoryInterface')
 
 <div class="fixed-action-btn mobile-menu">
-	<button id="trigger-overlay" type="button" class="btn-floating btn-medium yellow">
+	<button id="trigger-overlay" type="button" class="btn-floating btn-medium transparent">
 		<i class="fa fa-bars"></i>
 	</a>
 </div>	
