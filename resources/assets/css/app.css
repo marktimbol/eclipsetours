@@ -466,8 +466,10 @@ header nav {
   .fixed-action-btn.mobile-menu {
     top: -5px;
     right: 20px; }
-    .fixed-action-btn.mobile-menu .btn-floating i {
-      color: white; }
+    .fixed-action-btn.mobile-menu .btn-floating {
+      box-shadow: none !important; }
+      .fixed-action-btn.mobile-menu .btn-floating i {
+        color: white; }
 
 .collapsible-header {
   font-weight: bold; }
