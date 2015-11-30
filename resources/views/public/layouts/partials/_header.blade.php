@@ -1,5 +1,11 @@
 @inject('categories', 'Eclipse\Repositories\Category\CategoryRepositoryInterface')
 
+<div class="fixed-action-btn mobile-menu">
+	<button id="trigger-overlay" type="button" class="btn-floating btn-medium yellow">
+		<i class="fa fa-bars"></i>
+	</a>
+</div>	
+
 <header>
 	<div class="row no-margin-bottom">
 		<div class="navbar-fixed">
@@ -10,10 +16,6 @@
 					@endforeach
 				</ul>				
 				<div class="nav-wrapper">
-
-					<a href="#" data-activates="mobile-demo" class="button-collapse">
-						<i class="material-icons">menu</i>
-					</a>
 					
 					<ul id="nav-mobile" class="right hide-on-med-and-down">
 						 <li><a class="dropdown-button" href="{{ route('packages') }}" data-activates="packages-dropdown">Packages <i class="material-icons right">arrow_drop_down</i></a></li>

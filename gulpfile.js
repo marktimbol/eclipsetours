@@ -23,6 +23,8 @@ elixir(function(mix) {
           bowers + 'sweetalert/dist/sweetalert.min.js',
           bowers + 'wowjs/dist/wow.js',
           'libs/modernizr.custom.js',
+          'libs/classie.js',
+          'libs/mobile-menu.js',
           'app.js'
       ], 'public/js/public.js')
 

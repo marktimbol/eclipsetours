@@ -314,6 +314,86 @@ footer {
   vertical-align: text-top;
   background-repeat: no-repeat; }
 
+.mobile-menu {
+  display: none; }
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  position: fixed;
+  background: rgba(50, 143, 204, 0.9); }
+  .overlay .overlay-close {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    overflow: hidden;
+    border: none;
+    background: url("../../images/cross.png") no-repeat center center;
+    text-indent: 200%;
+    color: transparent;
+    outline: none;
+    z-index: 100; }
+  .overlay nav {
+    text-align: center;
+    position: relative;
+    top: 40%;
+    height: 60%;
+    background: transparent !important;
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%); }
+    .overlay nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto;
+      display: inline-block;
+      height: 100%;
+      position: relative; }
+      .overlay nav ul li {
+        display: block;
+        float: none !important;
+        min-height: 54px; }
+        .overlay nav ul li a {
+          font-size: 40px;
+          font-weight: 300;
+          display: block;
+          color: #fff;
+          transition: color 0.2s; }
+          .overlay nav ul li a:hover, .overlay nav ul li a:focus {
+            color: #f0f0f0; }
+        .overlay nav ul li:hover {
+          background-color: transparent !important; }
+  .overlay.overlay-contentscale {
+    visibility: hidden;
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+    transition: -webkit-transform 0.5s, visibility 0s 0.5s;
+    transition: transform 0.5s, visibility 0s 0.5s; }
+    .overlay.overlay-contentscale.open {
+      visibility: visible;
+      -webkit-transform: translateY(0%);
+      transform: translateY(0%);
+      transition: -webkit-transform 0.5s;
+      transition: transform 0.5s; }
+
+.container {
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s; }
+  .container.overlay-open {
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8); }
+
+@media screen and (max-height: 30.5em) {
+  .overlay nav {
+    height: 70%;
+    font-size: 34px; }
+    .overlay nav ul li {
+      min-height: 34px; } }
+
 .home .white-background .col {
   margin-bottom: 0 !important; }
 
@@ -381,7 +461,13 @@ header nav {
 
 .fixed-action-btn {
   bottom: 45px;
-  right: 24px; }
+  right: 24px;
+  z-index: 9999 !important; }
+  .fixed-action-btn.mobile-menu {
+    top: -5px;
+    right: 20px; }
+    .fixed-action-btn.mobile-menu .btn-floating i {
+      color: #328fcc; }
 
 .collapsible-header {
   font-weight: bold; }
@@ -426,6 +512,10 @@ header nav {
 
 /* Define mobile styles */
 @media only screen and (max-width: 40em) {
+  .fixed-action-btn {
+    bottom: 90px !important; }
+    .fixed-action-btn.mobile-menu {
+      display: block; }
   .center-content {
     display: block; }
   .white-background {

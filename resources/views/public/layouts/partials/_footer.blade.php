@@ -49,3 +49,5 @@
 		</div>
 	</div>
 </footer>
+
+@include('public.partials._mobile-menu')
