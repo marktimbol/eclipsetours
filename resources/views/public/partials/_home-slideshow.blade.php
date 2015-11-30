@@ -19,10 +19,11 @@
 	
 	<div id="topLeftCorner" 
 		style="background-image: url({{ asset('images/top-left-corner.png') }});"
+		class="wow fadeInLeft" data-wow-delay="0.2s"
 	>
 	</div>
 
-	<div class="logo">
+	<div class="logo wow fadeInLeft" data-wow-delay="0.6s">
 		<a href="{{ route('home') }}">
 			{!! getPhoto('logo.png', 'Eclipse Tourism', '') !!}
 		</a>
@@ -30,6 +31,7 @@
 
 	<div id="bottomRightCorner" 
 		style="background-image:url({{ asset('images/bottom-right-corner.png') }});"
+		class="wow fadeInRight" data-wow-delay="0.6s"
 	>
 	</div>	
 
@@ -40,10 +42,13 @@
 	</video>
 
 	<div id="intro-title">
-		{!! getPhoto('memorable-experience.png', 'A Memorable Experience', '') !!}
+		<div class="wow fadeInUp" data-wow-delay="0.4s">
+			{!! getPhoto('memorable-experience.png', 'A Memorable Experience', '') !!}
+		</div>
 
-		<a href="{{ route('packages') }}" class="btn waves-effect waves-light">View our Packages</a>
-
+		<p class="wow fadeInUp" data-wow-delay="0.6s">
+			<a href="{{ route('packages') }}" class="btn waves-effect waves-light">View our Packages</a>
+		</p>
 	</div>
 
 </div>

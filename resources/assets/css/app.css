@@ -91,6 +91,33 @@ header nav {
   background: #328fcc;
   background-color: #328fcc; }
 
+header .logo {
+  z-index: 9999;
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  width: 24%;
+  max-width: 250px; }
+
+header #topLeftCorner {
+  top: 0;
+  left: 0;
+  background-position: top left; }
+
+header #bottomRightCorner {
+  bottom: 0;
+  right: 0;
+  background-position: bottom right; }
+
+header #topLeftCorner, header #bottomRightCorner {
+  position: absolute;
+  max-width: 600px;
+  max-height: 350px;
+  width: 50%;
+  height: 40%;
+  background-size: contain;
+  background-repeat: no-repeat; }
+
 /** SLIDESHOW **/
 .slideshow {
   position: relative;
@@ -313,6 +340,9 @@ footer {
     right: 0;
     padding: 0px 10px;
     position: absolute; }
+
+.page header {
+  margin-bottom: 50px; }
 
 .page .page__title {
   font-size: 30px; }

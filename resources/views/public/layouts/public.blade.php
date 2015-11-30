@@ -18,7 +18,7 @@
 </head>
 <body class="@yield('body_class')">
 
-	@include('public.layouts.partials._header')
+	@include('public.layouts.partials._header', ['showLogo' => true])
 
 	@yield('content')
 

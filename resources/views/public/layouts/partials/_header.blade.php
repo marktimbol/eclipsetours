@@ -10,6 +10,7 @@
 					@endforeach
 				</ul>				
 				<div class="nav-wrapper">
+
 					<a href="#" data-activates="mobile-demo" class="button-collapse">
 						<i class="material-icons">menu</i>
 					</a>
@@ -43,4 +44,21 @@
 			</nav>
 		</div>
 	</div>
+
+	@if( $showLogo )
+
+		<div id="topLeftCorner" 
+			style="background-image: url({{ asset('images/top-left-corner.png') }});"
+			class="wow fadeInLeft" data-wow-delay="0.2s"
+		>
+		</div>		
+
+		<div class="logo wow fadeInLeft" data-wow-delay="0.6s">
+			<a href="{{ route('home') }}">
+				{!! getPhoto('logo.png', 'Eclipse Tourism', '') !!}
+			</a>
+		</div>
+	@endif	
+
+
 </header>
