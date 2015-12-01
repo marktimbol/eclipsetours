@@ -22,6 +22,12 @@ a {
 	}
 }
 
+.btn {
+	&.btn-block {
+		width: 100%;
+	}
+}
+
 header {
 	a {
 		font-size: 1em;
@@ -163,6 +169,10 @@ header {
 		.package__related__title {
 			font-size: 2rem;
 		}
+	}
+
+	.share-package {
+		margin-top: 20px;
 	}
 }
 
@@ -354,6 +364,7 @@ footer {
 }
 
 
+@import 'components/menu';
 @import 'components/mobile-menu';
 @import 'components/page';
 @import 'components/overwrite';

@@ -96,7 +96,7 @@
 
 .card__copy {
 	margin: 0 auto;
-	padding: 25px 30px 100px;
+	padding: 25px 22px 100px;
 	color: #3b393d;
 	overflow: hidden;
 }
@@ -147,7 +147,6 @@
 
 @media only screen and (max-width: 980px) {
 	.card {
-		width: 46%;
 		padding-bottom: 32.2%;
 	}
 	.card__image {

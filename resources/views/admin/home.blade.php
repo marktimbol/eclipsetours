@@ -2,6 +2,10 @@
 
 @section('pageTitle', 'Welcome')
 
+@section('header_styles')
+    <link rel="stylesheet" href="{{ elixir('css/calendar.css') }}" />
+@endsection
+
 @section('content')
     <div class="row">
         <div class="col-lg-12">
@@ -9,6 +13,7 @@
         </div>
     </div>
     <div class="row">
+
         <div class="col-lg-3 col-md-6">
             <div class="panel panel-primary">
                 <div class="panel-heading">
@@ -31,6 +36,7 @@
                 </a>
             </div>
         </div>
+
         <div class="col-lg-3 col-md-6">
             <div class="panel panel-green">
                 <div class="panel-heading">
@@ -53,6 +59,7 @@
                 </a>
             </div>
         </div>
+
         <div class="col-lg-3 col-md-6">
             <div class="panel panel-yellow">
                 <div class="panel-heading">
@@ -75,6 +82,7 @@
                 </a>
             </div>
         </div>
+
         <div class="col-lg-3 col-md-6">
             <div class="panel panel-red">
                 <div class="panel-heading">
@@ -97,5 +105,16 @@
                 </a>
             </div>
         </div>
+
+        <div class="col-md-12">
+            <p>&nbsp;</p>
+            <div id="calendar"></div>
+            <p>&nbsp;</p>
+        </div>
+
     </div>
+@endsection
+
+@section('footer_scripts')
+    <script src="{{ elixir('js/calendar.js') }}"></script>
 @endsection

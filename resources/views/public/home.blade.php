@@ -82,18 +82,10 @@
 								<div class="card__copy">
 									<div class="col m12 s12">
 										<div class="package">
-											<h1 class="package__title wow fadeInLeft">{{ $package->name }}</h1>
-
 											<div class="row">
 												<div class="col m9 s12 wow fadeInLeft">
-												
 													<div class="owl-carousel">
 														{!! displayAll($package->photos, 'img-rounded') !!}
-													</div>
-
-													<div class="package__description">
-														<h3>{{ $package->subtitle }}</h3>
-														{!! $package->description !!}
 													</div>
 												</div>
 
@@ -118,6 +110,7 @@
 														<li class="collection-item">
 															<strong>Child:</strong> {!! convertedAmountWithCurrency($package->child_price) !!}
 														</li>
+
 														@if( $package->confirm_availability )
 															<li class="collection-item">
 																Subject for Availability
@@ -125,93 +118,14 @@
 														@endif	
 													</ul>
 
-													<div class="book-a-package-form">
-
-														<h3 class="book-a-package-form__title">Book this package</h3>
-
-														@include('errors.forms')
-														
-														@if( $package->confirm_availability )
-															<form method="POST" action="{{ route('booking.store') }}">
-														@else
-															<form method="POST" action="{{ route('cart.store') }}">
-														@endif 
-														
-															{!! csrf_field() !!}
-
-															<input type="hidden" name="package_id" value="{{ $package->id }}" />
-
-															<div class="row">
-																<div class="col m12 mb-0">
-																	<div class="form-group">
-																		<label for="date">Preferred Date:</label>
-																		<div class="input-group">
-																			<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-																			<input type="text" name="date" id="date" class="form-control datepicker" required />
-																		</div>
-																	</div>
-																</div>
-
-																@if( $package->has_time_options )
-																	<div class="col m12 mb-0">
-																		<div class="form-group">
-																			<label for="time">Preferred Time:</label>
-																			<select name="time" class="form-control" required>
-																				<option value="" disabled selected>Choose your option</option>
-																				@foreach($time->get() as $value) 
-																					<option value="{{ $value }}">{{ $value }}</option>
-																				@endforeach
-																			</select>
-																		</div>
-																	</div>	
-																@endif									
-
-																<div class="col m12 s12">
-																	<div class="row">
-																		<div class="col m6 s6 mb-0">
-																			<div class="form-group">
-																				<label for="adult">Adult</label>
-																				<select name="quantity" id="adult" class="form-control">
-																					@foreach( range(1,20) as $count )
-																						<option value="{{ $count }}">{{ $count }}</option>
-																					@endforeach	
-																				</select>
-
-																				<input type="hidden" name="price" value="{{ $package->adult_price }}" />
-																			</div>
-																		</div>
-
-																		<div class="col m6 s6 mb-0">
-																			<div class="form-group">
-																				<label for="child">Child</label>
-																				<select name="child_quantity" id="child" class="form-control">
-																					@foreach( range(0,20) as $count )
-																						<option value="{{ $count }}">{{ $count }}</option>
-																					@endforeach	
-																				</select>
-																				<input type="hidden" name="child_price" value="{{ $package->child_price }}" />
-																			</div>
-																		</div>
-																	</div>
-																</div>
-
-																<div class="col m12 s12">
-																	<div class="form-group">
-																		<button type="submit" class="btn btn-large waves-effect waves-light full-width">
-																			Book now
-																		</button>
-																	</div>
-																</div>
-															</div>
-														</form>
-
-													</div>
+													<a href="{{ route('package', $package->slug) }}" class="btn btn-large btn-block waves-effect waves-light blue">View Package</a>
 
 													<div class="share-package">
-
+														
 														<h6>Share this package</h6>
 
 													</div>
+
 												</div>
 											</div>	
 										</div><!-- .package -->
@@ -232,96 +146,7 @@
 					<a href="{{ route('packages') }}" class="btn waves-effect waves-light">View all Packages</a>
 				</p>
 			</div>
-
-		</div>
-	
-
-{{-- 		<div class="row">
-			<div class="col s12 m8">
-				<div class="owl-carousel">
-					<a href="{{ route('package', 'hot-air-balloon') }}">
-						{!! getPhoto('hot-air-balloon.jpg', 'Hot Air Balloon Tour') !!}
-					</a>
-
-					<a href="{{ route('package', 'hot-air-balloon') }}">
-						{!! getPhoto('hot-air-balloon.jpg', 'Hot Air Balloon Tour') !!}
-					</a>
-				</div>
-			</div>
-
-			<div class="col s12 m4">
-				<div class="row">
-					<div class="col s12 m12 mb-20">
-						<div class="home__package">
-							
-							<a href="{{ route('package', 'dune-buggy-drive') }}"></a>
-
-							{!! getPhoto('dune-buggy-drive-tour.jpg', 'Dune Buggy Drive Tour') !!}
-
-							<h4 class="home__package__title white">Dune Buggy Drive</h4>
-
-						</div>
-					</div>
-					<div class="col s12 m12">
-						<div class="home__package">
-							
-							<a href="{{ route('package', 'ferrari-world-theme-park') }}"></a>
-
-							{!! getPhoto('ferrari-world-tour.jpg', 'Ferrari World Tour') !!}
-
-							<h4 class="home__package__title white">Ferrari World</h4>
-				
-						</div>		
-					</div>					
-				</div>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col s12 m4">
-				<div class="home__package">
-					
-					<a href="{{ route('package', 'desert-safari') }}"></a>
-
-					{!! getPhoto('desert-safari-tour.jpg', 'Desert Safari Tour') !!}
-
-					<h4 class="home__package__title white">Desert Safari</h4>
-		
-				</div>	
-			</div>
-
-			<div class="col s12 m4">
-				<div class="home__package">
-					
-					<a href="{{ route('package', 'burj-khalifa') }}"></a>
-
-					{!! getPhoto('burj-khalifa-tour.jpg', 'Burj Khalifa Tour') !!}
-
-					<h4 class="home__package__title white">Burj Khalifa</h4>
-		
-				</div>		
-			</div>
-
-			<div class="col s12 m4">
-
-				<div class="home__package">
-					
-					<a href="{{ route('package', 'dhow-dinner-cruise') }}"></a>
-
-					{!! getPhoto('dhow-cruise-tour.jpg', 'Dhow Cruise Tour') !!}
-
-					<h4 class="home__package__title white">Dhow Cruise</h4>
-		
-				</div>	
-			</div>	
-
-			<div class="col s12 m12">
-				<p>&nbsp;</p>
-				<p class="text-center">
-					<a href="{{ route('packages') }}" class="btn waves-effect waves-light">view all packages</a>
-				</p>
-			</div>					
-		</div>	 --}}	
+		</div>	
 	</div>
 
 @endsection

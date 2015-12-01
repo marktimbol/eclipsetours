@@ -15,6 +15,7 @@ elixir(function(mix) {
           bowers + 'sweetalert/dist/sweetalert.css',
           bowers + 'wowjs/css/libs/animate.css',
           bowers + 'fontawesome/css/font-awesome.css',
+          bowers + 'materialize/dist/css/materialize.css',
           'app.css'
     	], 'public/css/public.css')
 
@@ -22,20 +23,13 @@ elixir(function(mix) {
           bowers + 'jquery/dist/jquery.js',
           bowers + 'sweetalert/dist/sweetalert.min.js',
           bowers + 'wowjs/dist/wow.js',
+          bowers + 'materialize/dist/js/materialize.js',
           'libs/modernizr.custom.js',
           'libs/classie.js',
           'libs/mobile-menu.js',
+          'materialize.js',
           'app.js'
       ], 'public/js/public.js')
-
-      .styles([
-          bowers + 'materialize/dist/css/materialize.css',
-        ], 'public/css/materialize.css')
-
-      .scripts([
-          bowers + 'materialize/dist/js/materialize.js',
-          'materialize.js'
-        ], 'public/js/materialize.js')
 
       .scripts([
         'libs/stripe-billing.js'
@@ -45,24 +39,19 @@ elixir(function(mix) {
         'libs/twocheckout-billing.js'
         ], 'public/js/twocheckout-billing.js')
 
-      // .styles([
-      //   'libs/hero-slider.css'
-      //   ], 'public/css/hero-slider.css')
 
       .styles([
         bowers + 'owl-carousel/owl-carousel/owl.carousel.css',
         bowers + 'owl-carousel/owl-carousel/owl.theme.css'
         ], 'public/css/owl-carousel.css')
 
-      // .scripts([
-      //   'libs/hero-slider.js'
-      //   ], 'public/js/hero-slider.js')
-
       .scripts([
+        bowers + 'jquery/dist/jquery.js',
         'libs/home-video.js'
         ], 'public/js/home-video.js')      
 
       .scripts([
+        bowers + 'jquery/dist/jquery.js',
         bowers + 'owl-carousel/owl-carousel/owl.carousel.js',
         'libs/owl-carousel.js'
         ], 'public/js/owl-carousel.js')
@@ -106,7 +95,6 @@ elixir(function(mix) {
       bowers + 'metisMenu/dist/metisMenu.js',
       'admin/admin.js',
       'admin/sb-admin.js'
-
       ], 'public/js/admin.js')
 
     .styles([
@@ -118,19 +106,22 @@ elixir(function(mix) {
       'admin/dropzone.js'
       ], 'public/js/dropzone.js')
 
+    .styles([
+      bowers + 'fullcalendar/dist/fullcalendar.css'
+      ], 'public/css/calendar.css')
+
+    .scripts([
+      bowers + 'moment/min/moment.min.js',
+      bowers + 'fullcalendar/dist/fullcalendar.js',
+      'admin/calendar.js'
+      ], 'public/js/calendar.js')
+
     .version([
       'css/public.css',
       'js/public.js',
 
-      'css/materialize.css',
-      'js/materialize.js',
-
       'js/stripe-billing.js',
       'js/twocheckout-billing.js',
-      
-      //'css/bootstrap.custom.css', 
-      // 'css/hero-slider.css',
-      // 'js/hero-slider.js',
 
       'js/home-video.js',
 
@@ -144,6 +135,9 @@ elixir(function(mix) {
       'js/admin.js',
 
       'css/dropzone.css',
-      'js/dropzone.js'
+      'js/dropzone.js',
+
+      'css/calendar.css',
+      'js/calendar.js'
       ]);
 });

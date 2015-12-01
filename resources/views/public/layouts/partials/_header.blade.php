@@ -10,38 +10,51 @@
 	<div class="row no-margin-bottom">
 		<div class="navbar-fixed">
 			<nav>
-				<ul id="packages-dropdown" class="dropdown-content">
-					@foreach( $categories->all() as $category )
-						<li><a href="{{ route('category', $category->slug) }}">{{ $category->name }}</a></li>
-					@endforeach
-				</ul>				
 				<div class="nav-wrapper">
-					
-					<ul id="nav-mobile" class="right hide-on-med-and-down">
-						 <li><a class="dropdown-button" href="{{ route('packages') }}" data-activates="packages-dropdown">Packages <i class="material-icons right">arrow_drop_down</i></a></li>
-						<li><a href="{{ route('deals') }}">Deals</a></li>
-						<li><a href="{{ route('tourist-information') }}">Tourist Info</a></li>
-						<li><a href="{{ route('corporate') }}">Corporate</a></li>
-						<li><a href="{{ route('about') }}">About Us</a></li>
-						<li><a href="{{ route('contact') }}">Contact Us</a></li>
-						<li class="search-icon">
-							<a href="{{ route('cart.index') }}">
-								<i class="material-icons left">shopping_cart</i>
-								@if( Cart::count(false) > 0 )
-									<span class="badge">{{ Cart::count(false) }}</span>
-								@endif
-							</a>
-						</li>
-					</ul>
+					<div class="menu top-menu right hide-on-small-and-down">
+						<ul class="menu">
+							<li><a href="{{ route('home') }}">Home</a></li>
+							<li><a href="{{ route('packages') }}">Packages</a>
 
-					<ul class="side-nav" id="mobile-demo">
-						<li><a href="{{ route('packages') }}">Packages</a></li>
-						<li><a href="#">Deals</a></li>
-						<li><a href="{{ route('tourist-information') }}">Tourist Info</a></li>
-						<li><a href="{{ route('corporate') }}">Corporate</a></li>
-						<li><a href="{{ route('about') }}">About Us</a></li>
-						<li><a href="{{ route('contact') }}">Contact Us</a></li>
-					</ul>							
+								<div class="mega-menu">
+										
+									<div class="row">
+
+										@foreach( $categories->all()->chunk(3) as $categories )
+											
+											@foreach( $categories as $category )
+
+												<div class="col m4">
+													<h4>{{ $category->name }}</h4>
+
+													<ol>
+														@foreach( $category->packages as $package )
+															<li>
+																<a href="{{ route('package', $package->slug) }}">
+																	{{ $package->name }}
+																</a>
+															</li>
+														@endforeach
+													</ol>
+
+												</div>
+
+											@endforeach
+
+											<div class="clearfix"></div>
+
+										@endforeach
+
+									</div>
+								</div>
+							</li>
+							<li><a href="{{ route('deals') }}">Deals</a></li>
+							<li><a href="{{ route('tourist-information') }}">Tourist Info</a></li>
+							<li><a href="{{ route('corporate') }}">Corporate</a></li>
+							<li><a href="{{ route('about') }}">About Us</a></li>
+							<li><a href="{{ route('contact') }}">Contact Us</a></li>
+						</ul>
+					</div>
 				</div>
 			</nav>
 		</div>
@@ -62,5 +75,5 @@
 		</div>
 	@endif	
 
-
 </header>
+

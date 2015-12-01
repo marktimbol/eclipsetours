@@ -11,7 +11,6 @@
 	<!--Import Google Icon Font-->
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="{{ elixir('css/public.css') }}" />
-	<link rel="stylesheet" href="{{ elixir('css/materialize.css') }}" />
 
 	@yield('header_styles')
 	
@@ -27,7 +26,6 @@
 	@include('public.layouts.partials._footer')
 
 	<script src="{{ elixir('js/public.js') }}"></script>
-	<script src="{{ elixir('js/materialize.js') }}"></script>
 
 	@yield('footer_scripts')
 

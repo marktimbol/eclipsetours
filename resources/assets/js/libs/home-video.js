@@ -1,35 +1,35 @@
-$v = jQuery.noConflict();
+$a = jQuery.noConflict();
 
-$v(document).ready(function() {
+$a(document).ready(function() {
 
-    $v(".slideshow").css({
-        height: $v(window).height() + "px"
+    $a(".slideshow").css({
+        height: $a(window).height() + "px"
     }), 
 
-    $v("#intro-title").css({
-        height: 1.078 * $v("#intro-title").width() + "px"
+    $a("#intro-title").css({
+        height: 1.078 * $a("#intro-title").width() + "px"
     }), 
 
-    $v("#intro-title").css({
-        left: $v(window).width() / 2 - $v("#intro-title").width() / 2 + "px"
+    $a("#intro-title").css({
+        left: $a(window).width() / 2 - $a("#intro-title").width() / 2 + "px"
     }), 
 
-    $v("#intro-title").css({
-        top: $v(window).height() / 2 - $v("#intro-title").height() / 2 + "px"
+    $a("#intro-title").css({
+        top: $a(window).height() / 2 - $a("#intro-title").height() / 2 + "px"
     }), 
 
-    $v(window).resize(function() {
+    $a(window).resize(function() {
 
-        $v(".slideshow").css({
-            height: $v(window).height() + "px"
+        $a(".slideshow").css({
+            height: $a(window).height() + "px"
         })
 
-        $v("#intro-title").css({
-            left: $v(window).width() / 2 - $v("#intro-title").width() / 2 + "px"
+        $a("#intro-title").css({
+            left: $a(window).width() / 2 - $a("#intro-title").width() / 2 + "px"
         }), 
 
-        $v("#intro-title").css({
-            top: $v(window).height() / 2 - $v("#intro-title").height() / 2 + "px"
+        $a("#intro-title").css({
+            top: $a(window).height() / 2 - $a("#intro-title").height() / 2 + "px"
         })
 
     })
